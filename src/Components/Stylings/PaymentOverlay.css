@@ -1,0 +1,96 @@
+/* Ensure overlay takes up full screen */
+.overlay-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Background overlay effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevent scrolling on the background */
+}
+
+/* Make the payment modal scrollable */
+.payment-modal {
+  max-height: 80vh; /* Set maximum height of the modal */
+  overflow-y: auto; /* Enable vertical scrolling */
+  background: #fff;
+  padding: 50px;
+  border-radius: 10px;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+/* Optional: You may want to disable background scroll when overlay is active */
+body.overlay-active {
+  overflow: hidden; /* Disable background scrolling */
+}
+
+/* Ensure the alert doesn't overflow */
+.alert {
+  font-size: 0.9rem;
+  padding: 10px;
+  margin-top: 15px;
+  max-width: 100%;
+}
+
+/* Buttons in the same row */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Adjust the space between buttons */
+  margin-top: 20px; /* Add space between buttons and content */
+}
+
+/* Green tick styling */
+.green-tick {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+}
+
+/* QR code container */
+.qr-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  width: 200px; /* Square container for the QR code */
+  height: 200px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.qr-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fully covers the container */
+  margin: 0;
+  padding: 0;
+}
+
+/* PC screen specific styles */
+@media (min-width: 1000px) {
+  .overlay-container {
+    height: 100%; /* Full screen height */
+    overflow: hidden; /* Prevent scrolling on the background */
+  }
+
+  .payment-modal {
+    max-height: 90vh; /* Allow the modal to take up more space */
+  }
+
+  .qr-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fully covers the container */
+  }
+}
+
+/* Prevent body background scrolling when overlay is open */
+body.overlay-active {
+  overflow: hidden; /* Prevent scrolling */
+}
